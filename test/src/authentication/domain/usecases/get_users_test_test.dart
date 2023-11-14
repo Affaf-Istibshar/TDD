@@ -14,7 +14,7 @@ void main (){
    repository = MockAuthenticationRepository();
    usecase = GetUsers(repository);
   });
-  final tResponse = [const User.empty()];
+  final tResponse = [ User.empty()];
 
   test(('Should call  the [AuthRepo.getUsers] and it should return lit of users'),
           () async {

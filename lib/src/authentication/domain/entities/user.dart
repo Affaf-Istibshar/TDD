@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  final int id;
+  final String id;
   final String name;
   final String createdAt;
   final String avatar;
   const User.empty() :
-      this(id:  1,
+      this(id:  '1',
       createdAt: '_empty.createdAt',
         avatar: '_empty.avatar',
         name: '_empty.name',
