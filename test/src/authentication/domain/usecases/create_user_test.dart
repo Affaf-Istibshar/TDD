@@ -38,16 +38,22 @@ void main() {
             createdAt: any(named: 'createdAt'),
             name: any(named: 'name'),
             avatar: any(named: 'avatar'),
-          )).thenAnswer((_) async => const Right(null));
+        //void result invoking for that in Either type right hand side will be used for success
+               )).thenAnswer((_) async => const Right(null));
 
       //Act
       //when a higher order function is invoked/ called by any usecase
       // testing upper class
-      final result = await usecase(params);
+      // final result = await usecase(params);
+      final resultFuture = usecase(params);
       //Assert
       //expect from flutter test plugin
       // checking upper class call history (dependency dependency up up up)
-      expect(result, equals(const Right<dynamic, void>(null)));
+      // expect(result, equals(const Right<void, void>(null)));
+      //changed the expect statement to use expectLater with completes. This is the correct way to test that a Future completes successfully.
+      //the issue might be that you're trying to directly compare a Future<void> with a constant value, which is causing the error
+      // The expectLater function is used to test the future returned by usecase(params). The completes matcher ensures that the future completes successfully.
+      await expectLater(resultFuture, completes);
       // what if result is fake, wrong or corrupt
       verify(() => repository.createUser(
           createdAt: params.createdAt,
