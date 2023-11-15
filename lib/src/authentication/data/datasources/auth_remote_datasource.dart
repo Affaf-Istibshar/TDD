@@ -10,6 +10,7 @@ abstract class AuthenticationRemoteDataSource {
     required String name,
     required String avatar,
   });
-  //in remote data sources we never return entities , we return data models
+  //in remote data sources we never return entities ,
+  // we return data models...
   Future<List<UserModel>> getUsers();
 }
