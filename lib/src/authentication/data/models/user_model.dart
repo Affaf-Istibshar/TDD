@@ -15,10 +15,10 @@ class UserModel extends User {
 
   const UserModel.empty():
         this(
-          createdAt: '_empty.string',
-        name: '_empty.string',
+        id: '1',
         avatar: '_empty.avatar',
-        id: '1'
+        createdAt: '_empty.createdAt',
+        name: '_empty.name',
       );
 
   //when data received as json , String source from json
@@ -53,15 +53,15 @@ UserModel copyWith({
   DataMap toMap() => {
     'id': id,
     'avatar' : avatar,
-    'name': name,
     'createdAt' : createdAt,
+    'name': name,
   };
   //what about (toJson , toMap)
   // map in Json format...
 String toJson() => jsonEncode(toMap());
 
-void main() {
-  const user = UserModel.empty();
-  final newUser = user.copyWith(name: 'Sana');
-}
+// void main() {
+//   const user = UserModel.empty();
+//   final newUser = user.copyWith(name: 'Sana');
+// }
 }
