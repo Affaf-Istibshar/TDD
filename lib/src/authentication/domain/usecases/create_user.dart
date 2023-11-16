@@ -6,7 +6,7 @@ import 'package:testdrivndevelopment/core/usecase/usecase.dart';
 import 'package:testdrivndevelopment/core/utils/typedef.dart';
 import 'package:testdrivndevelopment/src/authentication/domain/repository/auth_repos.dart';
 
-class CreateUser extends UsecaseWithParams<void, CreateUserParams> {
+class CreateUser extends UsecaseWithParams<dynamic, CreateUserParams> {
   const CreateUser(this._repository);
   final AuthenticationRepo _repository;
 

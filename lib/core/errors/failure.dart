@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:testdrivndevelopment/core/errors/exceptions.dart';
 //exception cache failure, server failure, local data failure, anything
 abstract class Failure extends Equatable {
 
@@ -14,4 +15,7 @@ abstract class Failure extends Equatable {
 //Data source from servers, local  cache as data source, apis, etc
 class ApiFailure extends Failure {
   const ApiFailure({required super.message, required super.statusCode});
+
+  ApiFailure.fromException(ApiException exception) :
+      this(message: exception.message , statusCode: exception.statusCode);
 }
